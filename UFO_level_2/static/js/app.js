@@ -39,17 +39,7 @@ function handleClick() {
 
     var filteredData = tableData
 
-    // Select the input element and get the value property of the input element
-    var input = d3.select("#datetime").property("value");
 
-    // create an if statement for the filter
-    if(input){
-        filteredData = filteredData.filter(result => result.datetime === input);
-        // build table with filterData
-        buildTable(filteredData);
-    }
-    
-}
 
 // Assigning an action to Filter Table button when it's clicked
 d3.select("#filter-btn").on("click", handleClick);
