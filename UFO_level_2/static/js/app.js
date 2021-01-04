@@ -1,5 +1,5 @@
 // from data.js
-var tableData = data;
+const tableData = data;
 
 // reference table body
 var tbody = d3.select("tbody");
@@ -39,10 +39,44 @@ function handleClick() {
 
     var filteredData = tableData
 
+    var date = d3.select("#datetime").property("value");
+    if(date){
+        filteredData = filteredData.filter(result => result.datetime === date);
+    }
 
+    var city = d3.select("#city").property("value");
+    if(city){
+        filteredData = filteredData.filter(result => result.city === city);
+    }
+
+    var state = d3.select("#state").property("value");
+    if(state){
+        filteredData = filteredData.filter(result => result.state === state);
+    }
+
+    var country = d3.select("#country").property("value");
+    if(country){
+        filteredData = filteredData.filter(result => result.country === country);
+    }
+
+    var shape = d3.select("#shape").property("value");
+    if(shape){
+        filteredData = filteredData.filter(result => result.shape === shape);
+    }
+
+    // build table with filterData
+    buildTable(filteredData);
+
+}
+function pageRefresh() {
+location.reload();
+return false;
+}
 
 // Assigning an action to Filter Table button when it's clicked
 d3.select("#filter-btn").on("click", handleClick);
+
+d3.select("#page-btn").on("click", pageRefresh);
 
 // Assigning an action when user hits Enter key
 d3.select("form").on("submit", handleClick);
