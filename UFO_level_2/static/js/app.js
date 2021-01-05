@@ -1,5 +1,5 @@
 // from data.js
-const tableData = data;
+var tableData = data;
 
 // reference table body
 var tbody = d3.select("tbody");
@@ -21,20 +21,18 @@ function buildTable(table){
 
     // add the text value to each cell
     cell.text(value);
-
     });
   });
 }
 // Use a date form in your HTML document and write JavaScript code that will listen for events 
 //and search through the `date/time` column to find rows that match user input.
 
-
 function handleClick() {
 
     // stops the page from refreshing
     d3.event.preventDefault();
 
-    // clears data of the current table   
+    // clears data from current table   
     tbody.html("");
 
     var filteredData = tableData
@@ -64,22 +62,23 @@ function handleClick() {
         filteredData = filteredData.filter(result => result.shape === shape);
     }
 
-    // build table with filterData
+    // build table 
     buildTable(filteredData);
-
 }
+
 function pageRefresh() {
 location.reload();
 return false;
 }
 
-// Assigning an action to Filter Table button when it's clicked
+// assigning an action to Filter Table button when it's clicked
 d3.select("#filter-btn").on("click", handleClick);
 
+//page refresh
 d3.select("#page-btn").on("click", pageRefresh);
 
-// Assigning an action when user hits Enter key
+// assigning an action when user hits Enter key
 d3.select("form").on("submit", handleClick);
 
-// Call build the table function at the end 
+// call build table function at the end
 buildTable(tableData);

@@ -16,12 +16,11 @@ function buildTable(table){
     // iterate through keys and values
     Object.entries(item).forEach(([key, value]) => {
 
-    // Append 
+    // append 
     let cell = row.append("td");
 
-    // add the text value to each cell
+    // add text value to each cell
     cell.text(value);
-
     });
   });
 }
@@ -34,28 +33,27 @@ function handleClick() {
     // stops the page from refreshing
     d3.event.preventDefault();
 
-    // clears data of the current table   
+    // clears data from current table   
     tbody.html("");
 
     var filteredData = tableData
 
-    // Select the input element and get the value property of the input element
-    var input = d3.select("#datetime").property("value");
+    // select the input element and get the value property of the input element
+    var date = d3.select("#datetime").property("value");
 
     // create an if statement for the filter
-    if(input){
-        filteredData = filteredData.filter(result => result.datetime === input);
+    if(date){
+        filteredData = filteredData.filter(result => result.datetime === date);
         // build table with filterData
         buildTable(filteredData);
-    }
-    
+    }  
 }
 
-// Assigning an action to Filter Table button when it's clicked
+// assigning an action to Filter Table button when it's clicked
 d3.select("#filter-btn").on("click", handleClick);
 
-// Assigning an action when user hits Enter key
+// assigning an action when user hits Enter key
 d3.select("form").on("submit", handleClick);
 
-// Call build the table function at the end 
+// call build table function at the end 
 buildTable(tableData);
