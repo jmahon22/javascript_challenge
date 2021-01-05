@@ -10,13 +10,13 @@ function buildTable(table){
     // loop through data
     table.forEach((item) => {
 
-    // append
+    // append rows
     let row = tbody.append("tr");
 
     // iterate through keys and values
     Object.entries(item).forEach(([key, value]) => {
 
-    // Append 
+    // append cells 
     let cell = row.append("td");
 
     // add the text value to each cell

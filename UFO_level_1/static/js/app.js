@@ -10,13 +10,13 @@ function buildTable(table){
     // loop through data
     table.forEach((item) => {
 
-    // append
+    // append rows
     let row = tbody.append("tr");
 
     // iterate through keys and values
     Object.entries(item).forEach(([key, value]) => {
 
-    // append 
+    // append cells 
     let cell = row.append("td");
 
     // add text value to each cell
@@ -26,7 +26,6 @@ function buildTable(table){
 }
 // Use a date form in your HTML document and write JavaScript code that will listen for events 
 //and search through the `date/time` column to find rows that match user input.
-
 
 function handleClick() {
 
