@@ -77,8 +77,6 @@ d3.select("#filter-btn").on("click", handleClick);
 //page refresh
 d3.select("#page-btn").on("click", pageRefresh);
 
-// assigning an action when user hits Enter key
-d3.select("form").on("submit", handleClick);
 
 // call build table function at the end
 buildTable(tableData);
